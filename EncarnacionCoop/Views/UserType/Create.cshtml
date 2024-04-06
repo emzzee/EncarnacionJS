@@ -1,0 +1,13 @@
+@model EncarnacionCoop.Models.UserTypeViewModel
+<link rel="stylesheet" href="css/style.css">
+<h2>Add User Info</h2>
+
+<form asp-action="Create" method="post">
+ <div class="col-md-4">
+            <label asp-for="Name"></label>
+
+            <input asp-for="Name" type="text" class="form-control" id="Name" name="Name">
+
+        </div>
+        <button type="submit" class="btn btn-primary">Add User Type</button>
+</form>

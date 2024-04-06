@@ -1,0 +1,92 @@
+@model EncarnacionCoop.Models.ClientInfoViewModel
+@using EncarnacionCoop.Entities
+<link rel="stylesheet" href="css/style.css">
+<h2>Add User Info</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group col-md-3">
+        <label asp-for="UserType" class="col-form-label"></label>
+        <select asp-for="UserType" class="form-select" name="usertype" id="usertype">
+            <option value=""> </option>
+            @foreach (var userType in ViewData["UserType"] as List<UserType>)
+            {
+                <option value="@userType.Id">@userType.Name</option>
+            }
+        </select>
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" type="text" class="form-control" id="FirstName" name="FirstName">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="MiddleName">Middle Name</label>
+            <input asp-for="MiddleName" type="text" class="form-control" id="MiddleName" name="MiddleName">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="LastName">Last Name</label>
+            <input asp-for="LastName" type="text" class="form-control" id="LastName" name="LastName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <label asp-for="Address">Address</label>
+            <input asp-for="Address" type="text" class="form-control" id="Address" name="Address">
+        </div>
+        <div class="col-md-2">
+            <label asp-for="ZipCode">Zip</label>
+            <input asp-for="ZipCode"type="text" class="form-control" id="ZipCode" name="ZipCode">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="NameOfMother">Name of Mother</label>
+            <input asp-for="NameOfMother"type="text" class="form-control" id="NameOfMother" name="NameOfMother">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="NameOfFather">Name of Father</label>
+            <input asp-for="NameOfFather" type="text" class="form-control" id="NameOfFather" name="NameOfFather">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label asp-for="Birthday">Birthdate</label>
+            <input asp-for="Birthday"type="date" class="form-control" id="Birthday" name="Birthday">
+        </div>
+        <div class="col-md-2">
+            <label asp-for="Age">Age</label>
+            <input asp-for="Age"type="number" class="form-control" id="Age" name="Age">
+        </div>
+        <div class="col-md-3">
+            <label asp-for="CivilStatus">Civil Status</label>
+            <input asp-for="CivilStatus"type="text" class="form-control" id="CivilStatus" name="CivilStatus">
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Religion">Religion</label>
+            <input asp-for="Religion"type="text" class="form-control" id="Religion" name="Religion">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label asp-for="Occupatioin">Occupatioin</label>
+            <input asp-for="Occupatioin"type="text" class="form-control" name="Occupatioin" id="Occupatioin">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+</form>
+@section Scripts {
+    <script>
+        document.getElementById('Birthday').addEventListener('change', function () {
+            var birthday = new Date(this.value);
+            var today = new Date();
+            var age = today.getFullYear() - birthday.getFullYear();
+            var m = today.getMonth() - birthday.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+                age--;
+            }
+            document.getElementById('Age').value = age;
+        });
+    </script>
+}

@@ -1,0 +1,66 @@
+body {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 247, 247, 0.308), rgba(255, 255, 255, 0.5)), url("../bg.jpg") no-repeat center center/cover;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.acrylic-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.acrylic-content {
+    width: 1000px;
+    
+  }
+  
+.card {
+    background-color: rgba(44, 44, 44, 0.24);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+.btn-design {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(255, 141, 141, 0.288);
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.315);
+    transition: all 0.3s ease;
+    margin-left: 450px;
+}
+
+.btn-design::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 11, 11, 0.247);
+    z-index: -1;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.btn-design:hover::before {
+    /* transform: translateX(-10px); */
+    background-color: rgba(255, 154, 39, 0.829);
+    color: #fff;
+}
+
+.btn-design:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(255, 206, 71, 0.712);
+    color:#fff;
+    color: #ffc64a;
+}
+

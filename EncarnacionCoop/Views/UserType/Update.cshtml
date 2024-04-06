@@ -1,0 +1,15 @@
+@model EncarnacionCoop.Entities.UserType
+@using EncarnacionCoop.Entities
+
+<link rel="stylesheet" href="../wwwrooot/css/style.css">
+<h2>Update User Info</h2>
+
+<form asp-action="Update" method="post">
+        <div class="col-md-4">
+            <label asp-for="Name">Update User Type</label>
+            <input asp-for="Name" type="text" class="form-control" id="Name" name="Name">
+        </div>
+      
+    <button type="submit" class="btn btn-primary">Update User Type</button>
+</form>
+
